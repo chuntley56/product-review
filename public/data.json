@@ -1,0 +1,39 @@
+{
+  "reviews": [
+    {
+    "date": "2018-06-01T01:00:00",
+    "name": "Corey",
+    "rating": 5,
+    "description": "I really liked this product."
+  },
+    {
+    "date": "2018-05-01T01:00:00",
+    "name": "Bob",
+    "rating": 3,
+    "description": "It was ok."
+  },
+    {
+    "date": "2018-04-01T01:00:00",
+    "name": "Frank",
+    "rating": 4,
+    "description": "I hated it."
+  },
+    {
+    "date": "2018-03-01T01:00:00",
+    "name": "Alan",
+    "rating": 1,
+    "description": "I hated it."
+  },
+    {
+    "date": "2018-02-01T01:00:00",
+    "name": "Donald",
+    "rating": 5,
+    "description": "I hated it."
+  },
+    {
+    "date": "2018-01-01T01:00:00",
+    "name": "Evan",
+    "rating": 2,
+    "description": "Sucks"
+  }
+]}

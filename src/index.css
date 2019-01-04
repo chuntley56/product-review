@@ -1,0 +1,65 @@
+@font-face {
+  font-family: 'Thunder';
+  src: url('//cdn-bucket.dollarshaveclub.com/landing-pages/05-2015/fonts/thunder.woff') format('woff'), url('//cdn-bucket.dollarshaveclub.com/landing-pages/05-2015/fonts/thunder.tff') format('tff'), url('//cdn-bucket.dollarshaveclub.com/landing-pages/05-2015/fonts/thunder.ttf') format('truetype'), url('//cdn-bucket.dollarshaveclub.com/landing-pages/05-2015/fonts/thunder.svg') format('svg');
+}
+
+.review {
+  background: #eee;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.ratingBox {
+  width: 300px;
+  height: 190px;
+  background: url('./img/rating.svg') no-repeat;
+  background-size: contain;
+  margin: 0 auto;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.rating {
+  font-size: 52px;
+  font-family: 'Thunder', Georgia, serif;
+}
+
+.star {
+  font-size: 28px;
+  position: relative;
+}
+
+.star:before {
+  content: '\2605';
+}
+
+.star.on {
+  color: #ff6000;
+}
+
+.star.half:after {
+  content: '\2605';
+  color: #ff6000;
+  position: absolute;
+  top: 0.5px;
+  padding: 5px 0 5px;
+  margin-left: -28px;
+  overflow: hidden;
+}
+
+.review-form {
+  margin: 0 auto;
+  max-width: 400px;
+  text-align: center;
+}
+
+.review-form input {
+  width: 100%;
+  border: 1px solid #eee;
+  height: 40px;
+}
+
+.dropdown {
+  width: 300px;
+  margin: 0 auto;
+}
