@@ -16,7 +16,7 @@ constructor(props){
 componentDidMount() {
   fetch('./data.json')
     .then(response => response.json())
-    .then(data => { this.setState({ reviews: data.reviews })});
+    .then(data => { this.setState({ reviews: data.reviews.sort((a, b) => b.date.localeCompare(a.date)) })});
 }
 
 sortBy = event => {
