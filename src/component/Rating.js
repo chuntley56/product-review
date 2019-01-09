@@ -3,12 +3,12 @@ import Stars from './Stars.js';
 
 class Rating extends Component {
   render() {
-    const { rating } = this.props;
+    const { ratingAvg } = this.props;
     return (
       <div className="ratingBox">
-        <span className="rating">{rating}</span>
+        <span className="rating">{ratingAvg}</span>
         <p>Out of 5</p>
-        <Stars rating={rating} />
+        <Stars rating={ratingAvg} />
       </div> )
   }
 }

@@ -3,7 +3,7 @@
   src: url('//cdn-bucket.dollarshaveclub.com/landing-pages/05-2015/fonts/thunder.woff') format('woff'), url('//cdn-bucket.dollarshaveclub.com/landing-pages/05-2015/fonts/thunder.tff') format('tff'), url('//cdn-bucket.dollarshaveclub.com/landing-pages/05-2015/fonts/thunder.ttf') format('truetype'), url('//cdn-bucket.dollarshaveclub.com/landing-pages/05-2015/fonts/thunder.svg') format('svg');
 }
 
-.review {
+.reviewSingle {
   background: #eee;
   max-width: 500px;
   margin: 0 auto;
@@ -59,7 +59,84 @@
   height: 40px;
 }
 
+.reviewNav {
+  width: 600px;
+  max-width: 100%;
+  margin: 20px auto;
+  display: flex;
+  justify-content: space-between;
+}
+
 .dropdown {
-  width: 300px;
-  margin: 0 auto;
+  width: 150px;
+  max-width: 100%;
+  position: relative;
+}
+
+.dropdown label {
+  position: absolute;
+  left: 10px;
+  top: 3px;
+  font-size: 11px;
+}
+
+.dropdown select {
+  border: 1px solid rgba(0, 0, 0, .5);
+  background: none;
+  font-size: 16px;
+  width: 100%;
+  padding: 20px 10px 5px;
+  max-width: 100%;
+  border-radius: 5px;
+  appearance: none;
+  color: #363636;
+}
+
+.page-controls {
+  margin: 10px 0;
+}
+
+.arrow {
+  width: 30px;
+  height: 30px;
+  margin: 0 10px;
+  border: 1px solid rgba(0, 0, 0, .5);
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+  background: none;
+  padding: 0;
+  outline: none;
+}
+
+.arrow::before {
+  content: '';
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  position: relative;
+  top: 1px;
+  border-top: 2px solid rgba(0, 0, 0, .5);
+  border-right: 2px solid rgba(0, 0, 0, .5);
+}
+
+.hide {
+  border: 1px solid rgba(0, 0, 0, .2);
+  pointer-events: none;
+}
+
+.hide::before {
+  border-top: 2px solid rgba(0, 0, 0, .2);
+  border-right: 2px solid rgba(0, 0, 0, .2);
+  pointer-events: none;
+}
+
+.next::before {
+  transform: rotate(45deg);
+  left: -2px;
+}
+
+.prev::before {
+  transform: rotate(-135deg);
+  left: 2px;
 }

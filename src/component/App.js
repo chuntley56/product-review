@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Rating from './Rating.js';
 import Form from './Form.js';
-import Dropdown from './Dropdown.js';
+import Sort from './Sort.js';
 
 class App extends Component {
 constructor(props){
@@ -57,17 +57,19 @@ prevPage() {
 
 render() {
 const { reviewList, currentPage } = this.state;
-const rating = Math.round(reviewList.reduce((total, { rating }) => rating + total, 0) / reviewList.length * 10) / 10;
+const ratingAvg = (Math.round(reviewList.reduce((total, { rating }) => rating + total, 0) / reviewList.length * 10) / 10) || 5;
 
 const reviewsPerPage = 4;
 const indexLastReview = currentPage * reviewsPerPage;
 const indexFirstReview = indexLastReview - reviewsPerPage;
 const currentReviews = reviewList.slice(indexFirstReview, indexLastReview);
+const lastPage = Math.ceil(reviewList.length / reviewsPerPage);
+const isFirstPage = currentPage === 1;
+const isLastPage = currentPage === lastPage;
 
-
-const review = currentReviews.map((data, index) => {
+const reviewSingle = currentReviews.map((data, index) => {
   return (
-    <div className="review" key={index}>
+    <div className="reviewSingle" key={index}>
       <h4>{data.name}</h4>
       <span>{data.date}</span><br />
       <span>{data.rating}</span>
@@ -78,13 +80,16 @@ const review = currentReviews.map((data, index) => {
 
   return (
     <div>
-      <Rating rating={rating} />
-      <Dropdown
+      <Rating ratingAvg={ratingAvg} />
+      <Sort
         sort={this.sortOrder.bind(this)}
         currentPage={currentPage}
+        lastPage={lastPage}
+        isFirstPage={isFirstPage}
+        isLastPage={isLastPage}
         prevPage={this.prevPage.bind(this)}
         nextPage={this.nextPage.bind(this)} />
-      {review}
+      {reviewSingle}
     </div>
   )
 }
