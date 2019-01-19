@@ -3,23 +3,18 @@
   src: url('//cdn-bucket.dollarshaveclub.com/landing-pages/05-2015/fonts/thunder.woff') format('woff'), url('//cdn-bucket.dollarshaveclub.com/landing-pages/05-2015/fonts/thunder.tff') format('tff'), url('//cdn-bucket.dollarshaveclub.com/landing-pages/05-2015/fonts/thunder.ttf') format('truetype'), url('//cdn-bucket.dollarshaveclub.com/landing-pages/05-2015/fonts/thunder.svg') format('svg');
 }
 
-.reviewSingle {
-  background: #eee;
-  max-width: 500px;
-  margin: 0 auto;
-}
-
-.ratingBox {
+/* Rating */
+.rating {
   width: 300px;
-  height: 190px;
-  background: url('./img/rating.svg') no-repeat;
+  min-height: 190px;
+  background: url('./resources/images/rating.svg') no-repeat;
   background-size: contain;
   margin: 0 auto;
   text-align: center;
   padding: 40px 20px;
 }
 
-.rating {
+.rating-total {
   font-size: 52px;
   font-family: 'Thunder', Georgia, serif;
 }
@@ -47,19 +42,8 @@
   overflow: hidden;
 }
 
-.review-form {
-  margin: 0 auto;
-  max-width: 400px;
-  text-align: center;
-}
-
-.review-form input {
-  width: 100%;
-  border: 1px solid #eee;
-  height: 40px;
-}
-
-.reviewNav {
+/* Toolbar */
+.toolbar {
   width: 600px;
   max-width: 100%;
   margin: 20px auto;
@@ -67,20 +51,20 @@
   justify-content: space-between;
 }
 
-.dropdown {
+.sort-wrap {
   width: 150px;
   max-width: 100%;
   position: relative;
 }
 
-.dropdown label {
+label[for=sort] {
   position: absolute;
   left: 10px;
   top: 3px;
   font-size: 11px;
 }
 
-.dropdown select {
+.sort {
   border: 1px solid rgba(0, 0, 0, .5);
   background: none;
   font-size: 16px;
@@ -92,8 +76,21 @@
   color: #363636;
 }
 
-.page-controls {
+/* Reviews */
+.reviews {
+  min-height: 430px;
+}
+
+.reviewSingle {
+  background: #eee;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Pagination */
+.pagination {
   margin: 10px 0;
+  text-align: center;
 }
 
 .arrow {
@@ -139,4 +136,17 @@
 .prev::before {
   transform: rotate(-135deg);
   left: 2px;
+}
+
+/* Form */
+.review-form {
+  margin: 0 auto;
+  max-width: 400px;
+  text-align: center;
+}
+
+.review-form input {
+  width: 100%;
+  border: 1px solid #eee;
+  height: 40px;
 }
