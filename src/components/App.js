@@ -2,10 +2,8 @@ import React, { Component } from 'react';
 import Review from './Review';
 import RatingBox from './RatingBox';
 import Form from './Form';
-import Toolbar from './Toolbar';
+import Sort from './Sort';
 import Pagination from './Pagination';
-import { sortReviews } from '../actions';
-
 
 class App extends Component {
 constructor(props){
@@ -13,8 +11,7 @@ constructor(props){
 
   this.state = {
     reviews: [],
-    order: "new",
-    currentPage: 1
+    page: 1
   }
 }
 
@@ -24,68 +21,62 @@ componentDidMount() {
     .then(data => { this.setState({ reviews: data.reviews.sort((a, b) => b.date.localeCompare(a.date)) })});
 }
 
-sortOrder = event => {
+sort = event => {
+  const { reviews } = this.state;
+  const order = event.target.value;
+  event.preventDefault();
+
+    (order === 'old') ? reviews.sort((a, b) => a.date.localeCompare(b.date)) :
+    (order === 'low') ? reviews.sort((a, b) => a.rating - b.rating) :
+    (order === 'high') ? reviews.sort((a, b) => b.rating - a.rating) : reviews.sort((a, b) => b.date.localeCompare(a.date))
+
   this.setState({
-    order: event.target.value
-  }, () => {
-  this.sortReviews()
+    reviews: reviews,
+    page: 1
   })
 }
 
-sortReviews() {
-  const { reviews, order } = this.state;
+changePage = event => {
+  const { page } = this.state;
+  event.preventDefault();
 
-  if (order === 'old') {
-    reviews.sort((a, b) => a.date.localeCompare(b.date));}
-  else if (order === 'new') {
-    reviews.sort((a, b) => b.date.localeCompare(a.date));}
-  else if (order === 'low') {
-    reviews.sort((a, b) => a.rating - b.rating);}
-  else if (order === 'high') {
-    reviews.sort((a, b) => b.rating - a.rating);}
-
-  this.setState({
-    reviews: reviews
-  })
-}
-
-nextPage() {
-  const { currentPage } = this.state;
-  this.setState({ currentPage: currentPage + 1 })
-}
-
-prevPage() {
-  const { currentPage } = this.state;
-  this.setState({ currentPage: currentPage - 1 })
+  event.target.value === 'next' ?
+  this.setState({ page: page + 1 }) :
+  this.setState({ page: page - 1 })
 }
 
 render() {
-const { reviews, currentPage } = this.state;
+  const { reviews, page } = this.state;
 
-const totalReviews = reviews.length;
-const indexLastReview = currentPage * 4;
-const indexFirstReview = indexLastReview - 4;
-const currentReviews = reviews.slice(indexFirstReview, indexLastReview);
-const lastPage = Math.ceil(totalReviews / 4);
+  const totalReviews = reviews.length;
+  const indexLastReview = page * 4;
+  const indexFirstReview = indexLastReview - 4;
+  const currentReviews = reviews.slice(indexFirstReview, indexLastReview);
+  const lastPage = Math.ceil(totalReviews / 4);
+  const pageCopy = page === lastPage ?
+  `${indexFirstReview + 1} of ${totalReviews} Reviews` :
+  `${indexFirstReview + 1}-${indexLastReview} of ${totalReviews} Reviews`;
 
-const review = currentReviews.map((data, index) => { return <Review data={data} key={index}/> })
+  const review = currentReviews.map((data, index) => {
+    return (
+    <Review data={data} key={index}/> )})
 
   return (
     <div>
       <RatingBox reviews={reviews} />
-      <Toolbar
-        sort={this.sortOrder.bind(this)}
-        totalReviews={totalReviews}
-        indexFirstReview={indexFirstReview}
-        indexLastReview={indexLastReview} />
+      <section className="toolbar">
+        <div className="review-total">
+          {pageCopy}
+        </div>
+        <Sort sort={this.sort.bind(this)} />
+      </section>
       <section className="reviews">
         {review}
       </section>
       <Pagination
-        currentPage={currentPage}
+        page={page}
         lastPage={lastPage}
-        prevPage={this.prevPage.bind(this)}
-        nextPage={this.nextPage.bind(this)} />
+        changePage={this.changePage.bind(this)} />
     </div>
   )
 }

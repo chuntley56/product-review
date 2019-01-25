@@ -2,15 +2,13 @@ import React, { Component } from 'react';
 
 class Pagination extends Component {
 render() {
-  const { currentPage, lastPage, prevPage, nextPage } = this.props;
-  const isFirstPage = currentPage === 1;
-  const isLastPage = currentPage === lastPage;
+  const { page, lastPage, changePage } = this.props;
 
   return (
       <section className="pagination">
-        <button className={`arrow prev ${isFirstPage ? 'hide' :''}`} onClick={prevPage}></button>
-          <span>Page {currentPage} of {lastPage}</span>
-        <button className={`arrow next ${isLastPage ? 'hide' :''}`} onClick={nextPage}></button>
+        <button value="prev" className={`arrow prev ${page === 1 ? 'hide' :''}`} onClick={changePage}></button>
+          <span>Page {page} of {lastPage}</span>
+        <button value="next" className={`arrow next ${page === lastPage ? 'hide' :''}`} onClick={changePage}></button>
       </section>
   )
 }
