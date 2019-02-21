@@ -58,7 +58,7 @@ render() {
 
   return (
     <div className="content">
-    {rating &&  <RatingBox rating={rating} />}
+    {rating &&  <RatingBox rating={3.4} />}
 
       <section className="toolbar">
         <div className="ui-grid-container">
