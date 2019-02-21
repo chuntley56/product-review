@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 import Review from './Review';
 import RatingBox from './RatingBox';
-import Form from './Form';
 import Sort from './Sort';
 import Pagination from './Pagination';
 
-class App extends Component {
-constructor(props){
-  super(props);
+const paginate = (array, reviewsPerPage, page) => {
+  --page;
+  return array.slice(page * reviewsPerPage, (page + 1) * reviewsPerPage);
+}
 
-  this.state = {
+class App extends Component {
+  state = {
     reviews: [],
     page: 1
   }
-}
 
 componentDidMount() {
   fetch('./data.json')
@@ -25,11 +25,9 @@ sort = event => {
   const { reviews } = this.state;
   const order = event.target.value;
   event.preventDefault();
-
-    (order === 'old') ? reviews.sort((a, b) => a.date.localeCompare(b.date)) :
-    (order === 'low') ? reviews.sort((a, b) => a.rating - b.rating) :
-    (order === 'high') ? reviews.sort((a, b) => b.rating - a.rating) : reviews.sort((a, b) => b.date.localeCompare(a.date))
-
+  (order === 'old') ? reviews.sort((a, b) => a.date.localeCompare(b.date)) :
+  (order === 'low') ? reviews.sort((a, b) => a.rating - b.rating) :
+  (order === 'high') ? reviews.sort((a, b) => b.rating - a.rating) : reviews.sort((a, b) => b.date.localeCompare(a.date))
   this.setState({
     reviews: reviews,
     page: 1
@@ -39,7 +37,6 @@ sort = event => {
 changePage = event => {
   const { page } = this.state;
   event.preventDefault();
-
   event.target.value === 'next' ?
   this.setState({ page: page + 1 }) :
   this.setState({ page: page - 1 })
@@ -47,32 +44,43 @@ changePage = event => {
 
 render() {
   const { reviews, page } = this.state;
-
   const totalReviews = reviews.length;
-  const indexLastReview = page * 4;
-  const indexFirstReview = indexLastReview - 4;
-  const currentReviews = reviews.slice(indexFirstReview, indexLastReview);
-  const lastPage = Math.ceil(totalReviews / 4);
-  const pageCopy = page === lastPage ?
-  `${indexFirstReview + 1} of ${totalReviews} Reviews` :
-  `${indexFirstReview + 1}-${indexLastReview} of ${totalReviews} Reviews`;
-
+  const reviewsPerPage = 4;
+  const indexLastReview = page * reviewsPerPage;
+  const indexFirstReview = indexLastReview - reviewsPerPage;
+  const currentReviews = paginate(reviews, reviewsPerPage, page);
+  const lastPage = Math.ceil(totalReviews / reviewsPerPage);
+  const rating = (Math.round(reviews.reduce((total, { rating }) => rating + total, 0) / reviews.length * 10) / 10) || 5;
   const review = currentReviews.map((data, index) => {
     return (
-    <Review data={data} key={index}/> )})
+      <Review data={data} key={index}/>
+    )})
 
   return (
-    <div>
-      <RatingBox reviews={reviews} />
+    <div className="content">
+    {rating &&  <RatingBox rating={rating} />}
+
       <section className="toolbar">
-        <div className="review-total">
-          {pageCopy}
+        <div className="ui-grid-container">
+        <div className="ui-grid">
+          <div className="ui-grid-col">
+            <div className="review-total">
+              {page === lastPage ?
+              `${indexFirstReview + 1} of ${totalReviews} Reviews` :
+              `${indexFirstReview + 1}-${indexLastReview} of ${totalReviews} Reviews`}
+            </div>
+          </div>
+          <div className="ui-grid-col">
+              <Sort sort={this.sort.bind(this)} />
+          </div>
         </div>
-        <Sort sort={this.sort.bind(this)} />
+        </div>
       </section>
+
       <section className="reviews">
         {review}
       </section>
+
       <Pagination
         page={page}
         lastPage={lastPage}

@@ -3,6 +3,11 @@
   src: url('//cdn-bucket.dollarshaveclub.com/landing-pages/05-2015/fonts/thunder.woff') format('woff'), url('//cdn-bucket.dollarshaveclub.com/landing-pages/05-2015/fonts/thunder.tff') format('tff'), url('//cdn-bucket.dollarshaveclub.com/landing-pages/05-2015/fonts/thunder.ttf') format('truetype'), url('//cdn-bucket.dollarshaveclub.com/landing-pages/05-2015/fonts/thunder.svg') format('svg');
 }
 
+.content {
+  max-width: 1024px;
+  margin: 40px auto;
+}
+
 /* Rating */
 .rating {
   width: 300px;
@@ -43,18 +48,12 @@
 }
 
 /* Toolbar */
-.toolbar {
-  width: 600px;
-  max-width: 100%;
-  margin: 20px auto;
-  display: flex;
-  justify-content: space-between;
-}
-
 .sort-wrap {
   width: 150px;
   max-width: 100%;
   position: relative;
+  float: right;
+  text-align: right;
 }
 
 label[for=sort] {
@@ -76,15 +75,9 @@ label[for=sort] {
   color: #363636;
 }
 
-/* Reviews */
+/* Reviews*/
 .reviews {
-  min-height: 430px;
-}
-
-.reviewSingle {
-  background: #eee;
-  max-width: 500px;
-  margin: 0 auto;
+  min-height: 510px;
 }
 
 /* Pagination */
@@ -149,4 +142,8 @@ label[for=sort] {
   width: 100%;
   border: 1px solid #eee;
   height: 40px;
+}
+
+.text-right {
+  text-align: right;
 }

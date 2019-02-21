@@ -1,17 +1,23 @@
 import React, { Component } from 'react';
+import Stars from './Stars';
 
-class Review extends Component {
-  render(){
-    const { data } = this.props;
-    return(
-      <div className="reviewSingle">
-        <h4>{data.name}</h4>
-        <span>{data.date}</span><br />
-        <span>{data.rating}</span>
-        <p>{data.description}</p>
+export default ({ data }) => (
+      <div className="ui-grid-container">
+        <div className="ui-grid">
+          <div className="ui-grid-col is-quarter">
+            <h4>{data.name}</h4>
+            <span>Overall rating: {data.rating}</span><br />
+            <span>{data.date}</span><br />
+            <span>Member Since: {data.startdate}</span>
+          </div>
+          <div className="ui-grid-col is-half">
+            <h3>{data.title}</h3>
+            <p>{data.description}</p>
+          </div>
+          <div className="text-right ui-grid-col is-quarter">
+            <span>Quality: {data.quality}</span><br />
+            <span>Value: {data.value}</span>
+          </div>
+        </div>
       </div>
-    )
-  }
-}
-
-export default Review;
+)
