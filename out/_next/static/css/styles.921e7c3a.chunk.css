@@ -1,0 +1,150 @@
+@import url(https://unpkg.com/@dollarshaveclub/ui/dist/ui.css);
+@font-face {
+  font-family: 'Thunder';
+  src: url('//cdn-bucket.dollarshaveclub.com/landing-pages/05-2015/fonts/thunder.woff') format('woff'), url('//cdn-bucket.dollarshaveclub.com/landing-pages/05-2015/fonts/thunder.tff') format('tff'), url('//cdn-bucket.dollarshaveclub.com/landing-pages/05-2015/fonts/thunder.ttf') format('truetype'), url('//cdn-bucket.dollarshaveclub.com/landing-pages/05-2015/fonts/thunder.svg') format('svg');
+}
+
+.content {
+  max-width: 1024px;
+  margin: 40px auto;
+}
+
+/* Rating */
+.rating {
+  width: 300px;
+  min-height: 190px;
+  background: url(/product-review/_next/static/fonts/rating-9e07a9e996cf84ca1232a77d578b2cc4.svg) no-repeat;
+  background-size: contain;
+  margin: 0 auto;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.rating-total {
+  font-size: 52px;
+  font-family: 'Thunder', Georgia, serif;
+}
+
+.star {
+  font-size: 28px;
+  position: relative;
+}
+
+.star:before {
+  content: '\2605';
+}
+
+.star.on {
+  color: #ff6000;
+}
+
+.star.half:after {
+  content: '\2605';
+  color: #ff6000;
+  position: absolute;
+  top: 0.5px;
+  padding: 5px 0 5px;
+  margin-left: -28px;
+  overflow: hidden;
+}
+
+/* Toolbar */
+.sort-wrap {
+  width: 150px;
+  max-width: 100%;
+  position: relative;
+  float: right;
+  text-align: right;
+}
+
+label[for=sort] {
+  position: absolute;
+  left: 10px;
+  top: 3px;
+  font-size: 11px;
+}
+
+.sort {
+  border: 1px solid rgba(0, 0, 0, .5);
+  background: none;
+  font-size: 16px;
+  width: 100%;
+  padding: 20px 10px 5px;
+  max-width: 100%;
+  border-radius: 5px;
+  appearance: none;
+  color: #363636;
+}
+
+/* Reviews*/
+.reviews {
+  min-height: 510px;
+}
+
+/* Pagination */
+.pagination {
+  margin: 10px 0;
+  text-align: center;
+}
+
+.arrow {
+  width: 30px;
+  height: 30px;
+  margin: 0 10px;
+  border: 1px solid rgba(0, 0, 0, .5);
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+  background: none;
+  padding: 0;
+  outline: none;
+}
+
+.arrow::before {
+  content: '';
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  position: relative;
+  top: 1px;
+  border-top: 2px solid rgba(0, 0, 0, .5);
+  border-right: 2px solid rgba(0, 0, 0, .5);
+}
+
+.hide {
+  border: 1px solid rgba(0, 0, 0, .2);
+  pointer-events: none;
+}
+
+.hide::before {
+  border-top: 2px solid rgba(0, 0, 0, .2);
+  border-right: 2px solid rgba(0, 0, 0, .2);
+  pointer-events: none;
+}
+
+.next::before {
+  transform: rotate(45deg);
+  left: -2px;
+}
+
+.prev::before {
+  transform: rotate(-135deg);
+  left: 2px;
+}
+
+/* Form */
+.review-form {
+  margin: 0 auto;
+  max-width: 400px;
+  text-align: center;
+}
+
+.review-form input {
+  width: 100%;
+  border: 1px solid #eee;
+  height: 40px;
+}
+
+.text-right {
+  text-align: right;
+}
