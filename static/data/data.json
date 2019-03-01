@@ -1,5 +1,4 @@
-{
-  "reviews": [
+ [
     {
     "date": "2018-01-01T01:00:00",
     "name": "Corey",
@@ -90,4 +89,4 @@
     "title": "Not my favorite.",
     "description": "Not my favorite. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In euismod enim sollicitudin ante cursus facilisis. Aliquam vel massa tristique, vulputate ante eget, auctor sapien."
   }
-]}
+]

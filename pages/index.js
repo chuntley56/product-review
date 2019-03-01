@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
-import Review from './Review';
-import RatingBox from './RatingBox';
-import Sort from './Sort';
-import Pagination from './Pagination';
+import ReactDOM from 'react-dom';
+import fetch from 'isomorphic-unfetch';
+import Review from '../components/Review';
+import RatingBox from '../components/RatingBox';
+import Sort from '../components/Sort';
+import Pagination from '../components/Pagination';
+import '../static/css/style.css';
 
 const paginate = (array, reviewsPerPage, page) => {
   --page;
@@ -10,16 +13,16 @@ const paginate = (array, reviewsPerPage, page) => {
 }
 
 class App extends Component {
-  state = {
-    reviews: [],
-    page: 1
+  static async getInitialProps() {
+    const response = await fetch('https://chuntley56.github.io/product-review-next/static/data/data.json')
+    const reviews = await response.json()
+    return {reviews: reviews.sort((a, b) => b.date.localeCompare(a.date))}
   }
 
-componentDidMount() {
-  fetch('./data.json')
-    .then(response => response.json())
-    .then(data => { this.setState({ reviews: data.reviews.sort((a, b) => b.date.localeCompare(a.date)) })});
-}
+  state = {
+    reviews: this.props.reviews,
+    page: 1
+  }
 
 sort = event => {
   const { reviews } = this.state;
@@ -43,7 +46,7 @@ changePage = event => {
 }
 
 render() {
-  const { reviews, page } = this.state;
+  const { page, reviews } = this.state;
   const totalReviews = reviews.length;
   const reviewsPerPage = 4;
   const indexLastReview = page * reviewsPerPage;
@@ -58,7 +61,7 @@ render() {
 
   return (
     <div className="content">
-    {rating &&  <RatingBox rating={3.4} />}
+    {rating &&  <RatingBox rating={rating} />}
 
       <section className="toolbar">
         <div className="ui-grid-container">

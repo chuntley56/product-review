@@ -1,3 +1,5 @@
+@import "https://unpkg.com/@dollarshaveclub/ui/dist/ui.css";
+
 @font-face {
   font-family: 'Thunder';
   src: url('//cdn-bucket.dollarshaveclub.com/landing-pages/05-2015/fonts/thunder.woff') format('woff'), url('//cdn-bucket.dollarshaveclub.com/landing-pages/05-2015/fonts/thunder.tff') format('tff'), url('//cdn-bucket.dollarshaveclub.com/landing-pages/05-2015/fonts/thunder.ttf') format('truetype'), url('//cdn-bucket.dollarshaveclub.com/landing-pages/05-2015/fonts/thunder.svg') format('svg');
@@ -12,7 +14,7 @@
 .rating {
   width: 300px;
   min-height: 190px;
-  background: url('./resources/images/rating.svg') no-repeat;
+  background: url('../images/rating.svg') no-repeat;
   background-size: contain;
   margin: 0 auto;
   text-align: center;
