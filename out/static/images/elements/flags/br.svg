@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="43px" height="31px" viewBox="0 0 43 31" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-br</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="43" height="31" rx="3.1"></rect>
+        <ellipse id="path-3" cx="7.16666667" cy="7.23333333" rx="7.16666667" ry="7.23333333"></ellipse>
+    </defs>
+    <g id="IMAGES" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon-br">
+            <g id="BR">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Mask" fill="#FFFFFF" xlink:href="#path-1"></use>
+                <rect id="Mask-Copy" fill="#05AB41" mask="url(#mask-2)" x="0" y="0" width="43" height="31"></rect>
+                <path d="M4.95834294,16.0636748 C4.4816633,15.7523658 4.47494765,15.2520201 4.95834294,14.9363252 L20.6368952,4.6970081 C21.1135748,4.38569912 21.8797096,4.38131328 22.3631048,4.6970081 L38.0416571,14.9363252 C38.5183367,15.2476342 38.5250524,15.7479799 38.0416571,16.0636748 L22.3631048,26.3029919 C21.8864252,26.6143009 21.1202904,26.6186867 20.6368952,26.3029919 L4.95834294,16.0636748 Z" id="Rectangle-60" fill="#FDD216" mask="url(#mask-2)"></path>
+                <g id="Oval-2" mask="url(#mask-2)">
+                    <g transform="translate(14.333333, 8.266667)">
+                        <mask id="mask-4" fill="white">
+                            <use xlink:href="#path-3"></use>
+                        </mask>
+                        <use id="Mask" stroke="none" fill="#053087" fill-rule="evenodd" xlink:href="#path-3"></use>
+                        <path d="M-1.02380952,6.2 C5.83977311e-14,5.16666671 3.70131138,5.65003264 7.16666667,6.20000001 C10.6320219,6.74996739 14.3458067,8.27925626 15.3571429,9.3" id="Line" stroke="#FFFFFF" stroke-width="2.06666667" fill="none" stroke-linecap="square" mask="url(#mask-4)" transform="translate(7.166667, 7.446507) rotate(6.000000) translate(-7.166667, -7.446507) "></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
