@@ -14,7 +14,7 @@ const paginate = (array, reviewsPerPage, page) => {
 
 class App extends Component {
   static async getInitialProps() {
-    const response = await fetch('https://chuntley56.github.io/product-review-next/static/data/data.json')
+    const response = await fetch('https://chuntley56.github.io/product-review/static/data/data.json')
     const reviews = await response.json()
     return {reviews: reviews.sort((a, b) => b.date.localeCompare(a.date))}
   }
