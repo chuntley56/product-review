@@ -239,57 +239,59 @@ __webpack_require__.r(__webpack_exports__);
 var _jsxFileName = "/Users/chuntley/Sites/product-review/components/Sort.js";
 
 /* harmony default export */ __webpack_exports__["default"] = (function (_ref) {
-  var sort = _ref.sort;
+  var order = _ref.order,
+      sort = _ref.sort;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "sort-wrap",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 4
+      lineNumber: 5
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
     htmlFor: "sort",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 5
+      lineNumber: 6
     },
     __self: this
   }, "Sort By"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+    value: order,
     onChange: sort,
     name: "sort",
     id: "sort",
     className: "sort",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 6
+      lineNumber: 7
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
     value: "new",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 7
+      lineNumber: 8
     },
     __self: this
   }, "Newest"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
     value: "old",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 8
+      lineNumber: 9
     },
     __self: this
   }, "Oldest"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
     value: "high",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 9
+      lineNumber: 10
     },
     __self: this
   }, "High to low"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
     value: "low",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 10
+      lineNumber: 11
     },
     __self: this
   }, "Low to high")));
@@ -8374,26 +8376,19 @@ function (_Component) {
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_8__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__["default"])(_this), "state", {
       reviews: _this.props.reviews,
+      order: 'new',
       page: 1
     });
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_8__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_6__["default"])(_this), "sort", function (event) {
-      var reviews = _this.state.reviews;
-      var order = event.target.value;
-      event.preventDefault();
-      order === 'old' ? reviews.sort(function (a, b) {
-        return a.date.localeCompare(b.date);
-      }) : order === 'low' ? reviews.sort(function (a, b) {
-        return a.rating - b.rating;
-      }) : order === 'high' ? reviews.sort(function (a, b) {
-        return b.rating - a.rating;
-      }) : reviews.sort(function (a, b) {
-        return b.date.localeCompare(a.date);
-      });
+      var _this$state = _this.state,
+          order = _this$state.order,
+          reviews = _this$state.reviews;
 
       _this.setState({
-        reviews: reviews,
-        page: 1
+        order: event.target.value
+      }, function () {
+        _this.reorder();
       });
     });
 
@@ -8411,11 +8406,32 @@ function (_Component) {
   }
 
   Object(_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_3__["default"])(App, [{
+    key: "reorder",
+    value: function reorder() {
+      var _this$state2 = this.state,
+          order = _this$state2.order,
+          reviews = _this$state2.reviews;
+      order == 'old' ? reviews.sort(function (a, b) {
+        return a.date.localeCompare(b.date);
+      }) : order == 'low' ? reviews.sort(function (a, b) {
+        return a.rating - b.rating;
+      }) : order == 'high' ? reviews.sort(function (a, b) {
+        return b.rating - a.rating;
+      }) : reviews.sort(function (a, b) {
+        return b.date.localeCompare(a.date);
+      });
+      this.setState({
+        reviews: reviews,
+        page: 1
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
-      var _this$state = this.state,
-          page = _this$state.page,
-          reviews = _this$state.reviews;
+      var _this$state3 = this.state,
+          page = _this$state3.page,
+          reviews = _this$state3.reviews,
+          order = _this$state3.order;
       var totalReviews = reviews.length;
       var reviewsPerPage = 4;
       var indexLastReview = page * reviewsPerPage;
@@ -8432,7 +8448,7 @@ function (_Component) {
           key: index,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 59
+            lineNumber: 67
           },
           __self: this
         });
@@ -8441,70 +8457,71 @@ function (_Component) {
         className: "content",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 63
+          lineNumber: 71
         },
         __self: this
       }, rating && react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(_components_RatingBox__WEBPACK_IMPORTED_MODULE_13__["default"], {
         rating: rating,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 64
+          lineNumber: 72
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("section", {
         className: "toolbar",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 66
+          lineNumber: 74
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", {
         className: "ui-grid-container",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 67
+          lineNumber: 75
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", {
         className: "ui-grid",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 68
+          lineNumber: 76
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", {
         className: "ui-grid-col",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 69
+          lineNumber: 77
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", {
         className: "review-total",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 70
+          lineNumber: 78
         },
         __self: this
       }, page === lastPage ? "".concat(indexFirstReview + 1, " of ").concat(totalReviews, " Reviews") : "".concat(indexFirstReview + 1, "-").concat(indexLastReview, " of ").concat(totalReviews, " Reviews"))), react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", {
         className: "ui-grid-col",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 76
+          lineNumber: 84
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(_components_Sort__WEBPACK_IMPORTED_MODULE_14__["default"], {
-        sort: this.sort.bind(this),
+        order: order,
+        sort: this.sort,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 77
+          lineNumber: 85
         },
         __self: this
       }))))), react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("section", {
         className: "reviews",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 83
+          lineNumber: 91
         },
         __self: this
       }, review), react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(_components_Pagination__WEBPACK_IMPORTED_MODULE_15__["default"], {
@@ -8513,7 +8530,7 @@ function (_Component) {
         changePage: this.changePage.bind(this),
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 87
+          lineNumber: 95
         },
         __self: this
       }));
