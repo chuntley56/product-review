@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 export default ({ page, lastPage, changePage }) => (
       <section className="pagination">

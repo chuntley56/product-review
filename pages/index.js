@@ -21,16 +21,24 @@ class App extends Component {
 
   state = {
     reviews: this.props.reviews,
+    order: 'new',
     page: 1
   }
 
 sort = event => {
-  const { reviews } = this.state;
-  const order = event.target.value;
-  event.preventDefault();
-  (order === 'old') ? reviews.sort((a, b) => a.date.localeCompare(b.date)) :
-  (order === 'low') ? reviews.sort((a, b) => a.rating - b.rating) :
-  (order === 'high') ? reviews.sort((a, b) => b.rating - a.rating) : reviews.sort((a, b) => b.date.localeCompare(a.date))
+  const { order, reviews } = this.state;
+  this.setState({
+    order: event.target.value
+  }, () => {
+    this.reorder();
+  });
+}
+
+reorder() {
+  const { order, reviews } = this.state;
+  (order == 'old') ? reviews.sort((a, b) => a.date.localeCompare(b.date)) :
+  (order == 'low') ? reviews.sort((a, b) => a.rating - b.rating) :
+  (order == 'high') ? reviews.sort((a, b) => b.rating - a.rating) : reviews.sort((a, b) => b.date.localeCompare(a.date))
   this.setState({
     reviews: reviews,
     page: 1
@@ -46,7 +54,7 @@ changePage = event => {
 }
 
 render() {
-  const { page, reviews } = this.state;
+  const { page, reviews, order } = this.state;
   const totalReviews = reviews.length;
   const reviewsPerPage = 4;
   const indexLastReview = page * reviewsPerPage;
@@ -74,7 +82,7 @@ render() {
             </div>
           </div>
           <div className="ui-grid-col">
-              <Sort sort={this.sort.bind(this)} />
+              <Sort order={order} sort={this.sort} />
           </div>
         </div>
         </div>
