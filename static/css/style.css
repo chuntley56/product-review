@@ -50,6 +50,14 @@
 }
 
 /* Toolbar */
+.text-center {
+  text-align: center;
+}
+
+.toolbar {
+  margin-top: 30px;
+}
+
 .sort-wrap {
   width: 150px;
   max-width: 100%;

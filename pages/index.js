@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import fetch from 'isomorphic-unfetch';
+import Link from 'next/link';
 import Review from '../components/Review';
 import RatingBox from '../components/RatingBox';
 import Sort from '../components/Sort';
@@ -80,6 +81,11 @@ render() {
               `${indexFirstReview + 1} of ${totalReviews} Reviews` :
               `${indexFirstReview + 1}-${indexLastReview} of ${totalReviews} Reviews`}
             </div>
+          </div>
+          <div className="ui-grid-col text-center">
+            <Link href='/form'>
+              <a className="ui-btn ui-btn__primary">Write a Review</a>
+            </Link>
           </div>
           <div className="ui-grid-col">
               <Sort order={order} sort={this.sort} />
