@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import {Router} from '../routes';
 import '../static/css/style.css';
 
 class Form extends Component {
