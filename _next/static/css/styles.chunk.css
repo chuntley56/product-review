@@ -49,6 +49,14 @@
 }
 
 /* Toolbar */
+.text-center {
+  text-align: center;
+}
+
+.toolbar {
+  margin-top: 30px;
+}
+
 .sort-wrap {
   width: 150px;
   max-width: 100%;
@@ -153,6 +161,14 @@ label[for=sort] {
 
 .text-right {
   text-align: right;
+}
+
+.ui-input__text {
+  min-height: 60px;
+}
+
+.ui-input__text-wrapper {
+  margin-bottom: 20px;
 }
 
 /*# sourceMappingURL=styles.chunk.css.map*/
