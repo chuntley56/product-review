@@ -2,7 +2,7 @@
     {
     "date": "2018-01-01T01:00:00",
     "name": "Corey",
-    "startdate": 2016,
+    "joinDate": 2016,
     "rating": 5,
     "quality": 5,
     "value": 5,
@@ -12,7 +12,7 @@
     {
     "date": "2018-04-01T01:00:00",
     "name": "Bob",
-    "startdate": 2016,
+    "joinDate": 2016,
     "rating": 5,
     "quality": 5,
     "value": 5,
@@ -22,7 +22,7 @@
     {
     "date": "2018-05-01T01:00:00",
     "name": "Frank",
-    "startdate": 2015,
+    "joinDate": 2015,
     "rating": 5,
     "quality": 5,
     "value": 5,
@@ -32,7 +32,7 @@
     {
     "date": "2018-02-01T01:00:00",
     "name": "Alan",
-    "startdate": 2012,
+    "joinDate": 2012,
     "rating": 2,
     "quality": 2,
     "value": 2,
@@ -42,7 +42,7 @@
     {
     "date": "2018-03-01T01:00:00",
     "name": "Donald",
-    "startdate": 2017,
+    "joinDate": 2017,
     "rating": 5,
     "quality": 5,
     "value": 5,
@@ -52,7 +52,7 @@
     {
     "date": "2018-07-01T01:00:00",
     "name": "George",
-    "startdate": 2018,
+    "joinDate": 2018,
     "rating": 1,
     "quality": 1,
     "value": 1,
@@ -62,7 +62,7 @@
     {
     "date": "2019-01-01T01:00:00",
     "name": "Huey",
-    "startdate": 2013,
+    "joinDate": 2013,
     "rating": 3,
     "quality": 3,
     "value": 3,
@@ -72,7 +72,7 @@
     {
     "date": "2018-09-01T01:00:00",
     "name": "Inez",
-    "startdate": 2012,
+    "joinDate": 2012,
     "rating": 3,
     "quality": 3,
     "value": 3,
@@ -82,7 +82,7 @@
         {
     "date": "2018-06-01T01:00:00",
     "name": "Evan",
-    "startdate": 2016,
+    "joinDate": 2016,
     "rating": 2,
     "quality": 2,
     "value": 2,
