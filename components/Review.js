@@ -8,7 +8,7 @@ export default ({ data }) => (
             <h4>{data.name}</h4>
             <span>Overall rating: {data.rating}</span><br />
             <span>{data.date}</span><br />
-            <span>Member Since: {data.startdate}</span>
+            <span>Member Since: {data.joinDate}</span>
           </div>
           <div className="ui-grid-col is-half">
             <h3>{data.title}</h3>
